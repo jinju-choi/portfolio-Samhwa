@@ -199,43 +199,43 @@ header nav .enb li .search_btn {
   width: 100%;
 }
 /* 제이쿼리 */
-.current_gnb {
+.fixed-gnb {
   background-color: #fff;
   opacity: 1;
 }
-.current_gnb h1 a {
+.fixed-gnb h1 a {
   background-image: url("../img/logo-samhwa-red.svg");
 }
 .change a {
   background-image: url("../img/logo-samhwa-red.svg") !important;
 }
-.current_gnb h1::after {
+.fixed-gnb h1::after {
   background-image: url("../img/logo-samhwa-red-bf.svg");
 }
-.current_gnb nav .gnb_list h2 a {
+.fixed-gnb nav .gnb_list h2 a {
   color: #000 !important;
 }
-.current_gnb nav .gnb_list h2 a {
+.fixed-gnb nav .gnb_list h2 a {
   color: #000 !important;
 }
-.current_gnb nav .enb li select {
+.fixed-gnb nav .enb li select {
   color: #000 !important;
 }
-.current_gnb nav .enb li .search_btn {
+.fixed-gnb nav .enb li .search_btn {
   background-image: url(../img/search_black.png);
 }
-.current_gnb nav .enb li .search_sit {
+.fixed-gnb nav .enb li .search_sit {
   background-color: #000 !important;
 }
-.current_gnb nav .enb li a {
+.fixed-gnb nav .enb li a {
   color: #000;
 }
-.current_gnb nav .enb a.ham {
+.fixed-gnb nav .enb a.ham {
   background-color: #000 !important;
 }
-.current_gnb nav .enb a.ham::before {
+.fixed-gnb nav .enb a.ham::before {
   background-color: #000 !important;
 }
-.current_gnb nav .enb a.ham::after {
+.fixed-gnb nav .enb a.ham::after {
   background-color: #000 !important;
 }

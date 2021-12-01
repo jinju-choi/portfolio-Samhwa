@@ -1,30 +1,28 @@
 $(document).ready(function(){
-  // header===========================================================
-  //호버시 헤더배경
+  headerFixedAndGnbHover();
 
    //스크롤 이벤트
   $(window).scroll(function(){
-    headerFixed ();
-    currentGnb();
+    headerFixedAndGnbHover();
   });
-  headerFixed ();
-  currentGnb();
-  
+
   var wTop;
   var searchTop;
-
-  function currentGnb(){
+  //스크롤시 해더 배경and
+  function headerFixedAndGnbHover(){
     wTop = $(window).scrollTop();
     searchTop = $("#search").offset().top;
     if(wTop <= searchTop){
+      $("header").removeClass("fixed-gnb");
       $("header nav .gnb").hover(function(){
-        $("header").addClass("current_gnb");
+        $("header").addClass("fixed-gnb");
       },function(){
-        $("header").removeClass("current_gnb");
+        $("header").removeClass("fixed-gnb");
       });
     }else{
+      $("header").addClass("fixed-gnb");
       $("header nav .gnb").hover(function(){
-        $("header").addClass("current_gnb");
+        $("header").addClass("fixed-gnb");
       });
     }
   }
@@ -38,18 +36,6 @@ $(document).ready(function(){
     $gnbList.css({"color":"#000"});
   });
   
-
-  //헤더 픽스
-
-  function headerFixed (){
-    wTop = $(window).scrollTop();
-    searchTop = $("#search").offset().top;
-    if(wTop >= searchTop){
-      $("header").addClass("current_gnb");
-    }else if(wTop <= searchTop){
-      $("header").removeClass("current_gnb");
-    }
-  }
 
   //color 줌 버튼클릭시
   $("button.full").click(function(){
@@ -117,6 +103,7 @@ $(document).ready(function(){
       $familySite.find("span.arrow").css("transform","rotate(180deg)");
     }
   }
+
   //facebook===========================================================
   //facebook 클릭
   var $aside = $("aside.facebook");

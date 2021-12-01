@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   $(".popup_btn").click(function(e){
     if($(this).hasClass("current_ham")){
       $(".popmenu").fadeOut();
@@ -6,12 +7,14 @@ $(document).ready(function(){
       $(this).addClass("remove_ham");
       $("header").removeClass("current_gnb");
       $("h1").removeClass("change");
+      $("html").css("overflow","");
     }else{
       popmenuAdd();
       sideMenu();
       $("h1").addClass("change");
       $(this).removeClass("remove_ham");
-      $(this).addClass("current_ham");       
+      $(this).addClass("current_ham");  
+      $("html").css("overflow","hidden");  
     }
     sideColor();
     sidesubColor();
