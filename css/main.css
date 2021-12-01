@@ -870,3 +870,8 @@ aside.facebook {
     width: 100%;
   }
 }
+input.clip_target {
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+}

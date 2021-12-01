@@ -68,12 +68,23 @@ $(document).ready(function(){
       $(".color_popup").fadeOut();
     });
   });
+
   //컬러코드 복사
+  $("body").append("<input class='clip_target' type='text'/>");
   $("#color button.copy").click(function(){
     var $copybtn = $(this).parent().parent();
-    $copybtn.siblings(".copy_code").select();
-    document.execCommand("copy");
-    alert("컬러코드가 복사되었습니다.");
+    var copyText = $copybtn.siblings(".copy_code").text();
+    $(".clip_target").attr('value',copyText);
+    $(".clip_target").select();
+    console.log( $(".clip_target").val());
+    try{
+      var success = document.execCommand('copy');
+
+      if(success) alert("컬러코드가 복사되었습니다.");
+      else alert("복사된 값이 없습니다.");
+    } catch (error) {
+      alert("해당 브라우저는 지원하지 않습니다.");
+    }
   });
 
   //페밀리사이트===========================================================
