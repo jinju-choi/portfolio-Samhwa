@@ -406,7 +406,7 @@ body {
   transform: rotate(-45deg);
   left: 0;
 }
-.color_popup div {
+.color_popup .text-contents {
   position: absolute;
   bottom: 0;
   background: #fff;
@@ -417,18 +417,18 @@ body {
   box-sizing: border-box;
 }
 
-.color_popup div p {
+.color_popup .text-contents p {
   transform: scaleY(0.9);
 }
-.color_popup p:nth-of-type(1) {
+.color_popup .text-contents p:nth-of-type(1) {
   font-size: 25px;
   font-weight: 600;
   margin-right: 20px;
 }
-.color_popup p:nth-of-type(2) {
+.color_popup .text-contents p:nth-of-type(2) {
   font-size: 18px;
 }
-.color_popup div button {
+.color_popup .text-contents button {
   position: absolute;
   right: 30px;
   background-color: transparent;
@@ -438,22 +438,22 @@ body {
   cursor: pointer;
 }
 
-.color_popup div button:nth-of-type(1) {
+.color_popup .text-contents button.copy {
   background-image: url(../img/copy_black.svg);
   right: 250px;
 }
-.color_popup div button:nth-of-type(1)::after {
+.color_popup .text-contents button.copy::after {
   content: "컬러코드 복사하기";
   margin-left: 20px;
 }
-.color_popup div button::after {
+.color_popup .text-contents button::after {
   font-size: 17px;
   font-weight: 600;
 }
-.color_popup div button:nth-of-type(2) {
+.color_popup .text-contents button:nth-of-type(2) {
   background-image: url(../img/map_black.svg);
 }
-.color_popup div button:nth-of-type(2)::after {
+.color_popup .text-contents button:nth-of-type(2)::after {
   content: "구매 가능한 대리점 보기";
   margin-left: 20px;
 }

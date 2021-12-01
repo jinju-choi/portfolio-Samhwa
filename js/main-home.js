@@ -51,30 +51,44 @@ $(document).ready(function(){
     }
   }
 
-  //color 줌 버튼클릭시 색상 ===========================
-  var colorListidx;
-  var colorpop = ["#005171","#7e9aaa","#98b2c6","#bdc8d2"];
+  //color 줌 버튼클릭시
   $("button.full").click(function(){
-    $("#color").prepend("<div class='color_popup'></div>");
-    $(".color_popup").append("<button class='close' type='button'></button>");
-    $(".color_popup").append("<div></div>");
-    $(this).parent().parent().siblings("p").clone().appendTo(".color_popup div");
-    $(".color_popup div").append("<button type='button'></button><button type='button'></button>");
-
-    colorListidx = $(this).parent().parent().parent("li").index();
-    $(".color_popup").css("background-color",colorpop[colorListidx]);
-
+    colorZoomPopup(this);
+    
+    $(".color_popup .copy").click(function(){
+      var copyCode = $(this).siblings(".copy_code").text();
+      clipBoardCopy(copyCode);
+    });
     $("#color .close").click(function(){
       $(".color_popup").fadeOut();
     });
   });
+
+  //zoom버튼 클릭시 풀 화면 contents생성
+  var colorListidx;
+  var colorpop = ["#005171","#7e9aaa","#98b2c6","#bdc8d2"];
+  function colorZoomPopup(thisEl) {
+    $("#color").prepend("<div class='color_popup'></div>");
+    $(".color_popup").append("<button class='close' type='button'></button>");
+    $(".color_popup").append("<div class='text-contents'></div>");
+    $(thisEl).parent().parent().siblings("p").clone().appendTo(".color_popup div");
+    $(".color_popup div").append("<button type='button' class='copy'></button><button type='button'></button>");
+
+    colorListidx = $(thisEl).parent().parent().parent("li").index();
+    $(".color_popup").css("background-color",colorpop[colorListidx]);
+  }
 
   //컬러코드 복사
   $("body").append("<input class='clip_target' type='text'/>");
   $("#color button.copy").click(function(){
     var $copybtn = $(this).parent().parent();
     var copyText = $copybtn.siblings(".copy_code").text();
-    $(".clip_target").attr('value',copyText);
+    clipBoardCopy(copyText);
+  });
+
+  //클립보드 복사 함수
+  function clipBoardCopy(copyEl) {
+    $(".clip_target").attr('value',copyEl);
     $(".clip_target").select();
     console.log( $(".clip_target").val());
     try{
@@ -85,7 +99,7 @@ $(document).ready(function(){
     } catch (error) {
       alert("해당 브라우저는 지원하지 않습니다.");
     }
-  });
+  }
 
   //페밀리사이트===========================================================
   //페밀리사이트 클릭
