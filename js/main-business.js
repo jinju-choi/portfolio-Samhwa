@@ -61,21 +61,22 @@ let busCountBtn = document.querySelectorAll('#business .business_btn button');
 
 busCountBtn.forEach((item) => {
   item.addEventListener('click',() => {
-    if (item.className == 'prev') {
-      prevSlide();
-      if (n == 1) {
-        n = total;
-      } else {
-        n--;
-      }
-    } else {
-      nextSlide();
-      if (n < total) {
-        n++;
-      } else if (n == total) {
-        n = 1;
-      }
-    }
+    // if (item.className == 'prev') {
+    //   prevSlide();
+    //   if (n == 1) {
+    //     n = total;
+    //   } else {
+    //     n--;
+    //   }
+    // } else {
+    //   nextSlide();
+    //   if (n < total) {
+    //     n++;
+    //   } else if (n == total) {
+    //     n = 1;
+    //   }
+    // }
+    nextSlide();
 
     console.log("클릭")
     countText.innerText = n + "/" + total;
@@ -116,10 +117,15 @@ function prevSlide() {
 
 }
 
+let firstSlide = businessSlide.firstChild;
+
 function nextSlide() {
-  let firstSlide = businessSlide.firstChild;
-  businessSlide.appendChild(firstSlide);
   businessSlide.style.left =  -100+'%';
+  businessSlide.appendChild(firstSlide);
+
+  // setTimeout(() => {
+  //   businessSlide.style.left =  0+'%';
+  // }, 1000);
 }
 
 // function prevSlide() {
