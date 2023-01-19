@@ -1,156 +1,85 @@
-// $(document).ready(function () {
-//비즈니스 사이즈
+$(document).ready(function () {
+  //비즈니스 사이즈
 
-//슬라이드 복제 & wrap
-// $("#business .business_slide").wrap("<div class='slide_wrap'></div>");
-// $("#business .slide_wrap").wrap("<div class='slide_list'></div>");
-// $("#business .slide_wrap").clone().appendTo("#business .slide_list");
-// $("#business .slide_wrap:eq(0)").clone().appendTo("#business .slide_list");
-// $("#business .slide_wrap:eq(1) .business_slide li:eq(0)").appendTo("#business .slide_wrap:eq(1) .business_slide");
-// $("#business .slide_wrap:eq(2) .business_slide li:eq(0)").appendTo("#business .slide_wrap:eq(2) .business_slide");
-// $("#business .slide_wrap:eq(2) .business_slide li:eq(0)").appendTo("#business .slide_wrap:eq(2) .business_slide");
+  //슬라이드 복제 & wrap
+  $("#business .business_slide").wrap("<div class='slide_wrap'></div>");
+  $("#business .slide_wrap").wrap("<div class='slide_list'></div>");
+  $("#business .slide_wrap").clone().appendTo("#business .slide_list");
+  $("#business .slide_wrap:eq(0)").clone().appendTo("#business .slide_list");
+  $("#business .slide_wrap:eq(1) .business_slide li:eq(0)").appendTo("#business .slide_wrap:eq(1) .business_slide");
+  $("#business .slide_wrap:eq(2) .business_slide li:eq(0)").appendTo("#business .slide_wrap:eq(2) .business_slide");
+  $("#business .slide_wrap:eq(2) .business_slide li:eq(0)").appendTo("#business .slide_wrap:eq(2) .business_slide");
+
+  if ($(window).width() > 1200) {
+    var winWidth = $(window).width();
+    var busWidth = $("#business .inner").width();
+    console.log("winWidth" + winWidth);
+    console.log("ulWidth" + busWidth);
+    var sum = winWidth - busWidth / 2;
+
+    sum = sum + $("#business .slide_list .slide_wrap:nth-child(3)").width() / 2;
+    $("#business .slide_list").css({
+      "width": "calc(" + busWidth + "px + " + sum + "px)"
+    });
+
+  }
+  // sum=sum+$("#business .slide_list .slide_wrap:nth-child(3)").width()/2;
+  // $("#business .slide_list").css({"width":"calc("+busWidth+"px + "+sum+"px)"});
 
 
-//슬라이드 복제 & wrap
-let businessSlideWrap = document.querySelector('#business .slide_wrap');
-let businessSlideList = document.querySelector('#business .slide_list');
+  var busIdx = $("#business .slide_wrap:eq(0) .business_slide li").index;
 
-let slideItem1 = businessSlideWrap.cloneNode(true);
-let slideItem2 = businessSlideWrap.cloneNode(true);
+  //비즈니스 무한 슬라이드 
+  var total = $("#business .slide_wrap:eq(0) .business_slide li").length;
 
-businessSlideList.appendChild(slideItem1);
-businessSlideList.appendChild(slideItem2);
+  $("#business .business_btn").append("<p class='count'></p>")
+  $("#business .count").text(1 + "/" + total);
 
-let busInner = document.querySelector(".inner");
-let winWidth = window.innerWidth;
-let busWidth = busInner.clientWidth;
+  var $slideUl = $("#business .business_slide");
+  var n = 1;
 
-if (window.innerWidth > 1200) {
-  console.log("winWidth," + winWidth);
-  console.log("ulWidth," + busWidth);
-  let sum = winWidth - busWidth / 2;
-
-  sum = sum + businessSlideWrap.clientWidth / 2;
-  businessSlideList.style.width = "calc(" + busWidth + "px + " + sum + "px)";
-
-}
-
-//비즈니스 무한 슬라이드 
-let slideItemLength = businessSlideWrap.querySelectorAll('li');
-// let total = $("#business .slide_wrap:eq(0) .business_slide li").length;
-
-let total;
-
-slideItemLength.forEach((el)=> {
-  total = el.index;
-});
-let busBtn = document.querySelector('#business .business_btn');
-let countText = busBtn.querySelector('.count');
-
-countText.innerText = 1 + "/" + total;
-
-let businessSlideAll = document.querySelectorAll('#business .business_slide');
-let businessSlide;
-businessSlideAll.forEach((el)=> {
-  businessSlide = el;
-});
-
-let n = 1;
-
-let busCountBtn = document.querySelectorAll('#business .business_btn button');
-
-busCountBtn.forEach((item) => {
-  item.addEventListener('click',() => {
-    // if (item.className == 'prev') {
-    //   prevSlide();
-    //   if (n == 1) {
-    //     n = total;
-    //   } else {
-    //     n--;
-    //   }
-    // } else {
-    //   nextSlide();
-    //   if (n < total) {
-    //     n++;
-    //   } else if (n == total) {
-    //     n = 1;
-    //   }
-    // }
-    nextSlide();
-
-    console.log("클릭")
-    countText.innerText = n + "/" + total;
+  $("#business .business_btn button").click(function () {
+    if ($(this).hasClass("prev")) {
+      prevSlide();
+      if (n == 1) {
+        n = total;
+      } else {
+        n--;
+      }
+    } else {
+      nextSlide()
+      if (n < total) {
+        n++;
+      } else if (n == total) {
+        n = 1;
+      }
+    }
+    $("#business .count").text(n + "/" + total);
   });
-})
 
-// $("#business .business_btn button").click(function () {
-//   if ($(this).hasClass("prev")) {
-//     prevSlide();
-//     if (n == 1) {
-//       n = total;
-//     } else {
-//       n--;
-//     }
-//   } else {
-//     nextSlide();
-//     if (n < total) {
-//       n++;
-//     } else if (n == total) {
-//       n = 1;
-//     }
-//   }
-//   $("#business .count").text(n + "/" + total);
-// });
+  function prevSlide() {
+    $slideUl.stop().animate({}, function () {
+      $(this).children("li").last().prependTo(this);
+    });
+    $slideUl.css({
+      "left": -100 + "%"
+    });
+    $slideUl.stop().animate({
+      "left": 0
+    });
+  }
 
-let slideItem = document.querySelectorAll('#business .business_slide li');
+  function nextSlide() {
+    $slideUl.stop().animate({
+      "left": -100 + "%"
+    }, function () {
+      $(this).children("li").first().appendTo(this);
+      $slideUl.css({
+        "left": 0
+      });
+    })
+  }
 
-slideItem.forEach((el)=> {
-  slideItem = el;
+
+
 });
-
-function prevSlide() {
-  let lastSlide = businessSlide.lastChild;
-
-  businessSlide.prependChild(lastSlide);
-
-  businessSlide.style.left = 0+'%';
-
-}
-
-let firstSlide = businessSlide.firstChild;
-
-function nextSlide() {
-  businessSlide.style.left =  -100+'%';
-  businessSlide.appendChild(firstSlide);
-
-  // setTimeout(() => {
-  //   businessSlide.style.left =  0+'%';
-  // }, 1000);
-}
-
-// function prevSlide() {
-//   $slideUl.stop().animate({}, function () {
-//     $(this).children("li").last().prependTo(this);
-//   });
-//   $slideUl.css({
-//     "left": -100 + "%"
-//   });
-//   $slideUl.stop().animate({
-//     "left": 0
-//   });
-// }
-
-// function nextSlide() {
-//   $slideUl.stop().animate({
-//     "left": -100 + "%"
-//   }, function () {
-//     $(this).children("li").first().appendTo(this);
-//     $slideUl.css({
-//       "left": 0
-//     });
-//   })
-// }
-
-
-
-// });
