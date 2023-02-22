@@ -23,6 +23,7 @@ header h1 {
   height: 33px;
   position: relative;
 }
+
 header h1::after {
   content: "";
   /*! display: inline-block; */
@@ -33,6 +34,7 @@ header h1::after {
   position: absolute;
   left: 90px;
 }
+
 header h1 a {
   display: block;
   width: 100%;
@@ -44,17 +46,20 @@ header h1 a {
 }
 
 header nav {
-  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
 }
 
 header nav>.gnb {
-  float: left;
+  display: flex;
+  align-items: center;
 }
 
 header nav>.gnb>.gnb_list {
-  float: left;   
   line-height: 80px;
 }
+
 header nav>.gnb>.gnb_list::after {
   content: "";
   display: block;
@@ -68,25 +73,28 @@ header nav>.gnb>.gnb_list::after {
   opacity: 0;
   border-top: 1px solid #ccc;
 }
+
 header nav>.gnb:hover .gnb_list::after {
   display: block;
   top: 89px;
   opacity: 1;
   background: #fff;
 }
+
 header nav>.gnb>.gnb_list h2 {
   text-align: center;
-  
+
 }
 
 header nav>.gnb>.gnb_list h2 a {
-  padding: 0 2.1vw;
+  padding: 0 1.5rem;
   display: block;
   color: #fff;
   font-size: 18px;
   transition: 0.5s;
   transform: scaleY(0.92);
 }
+
 header nav>.gnb>.gnb_list h2 a::after {
   content: "";
   display: block;
@@ -97,10 +105,12 @@ header nav>.gnb>.gnb_list h2 a::after {
   transition: 0.5s ease-in-out;
   opacity: 0;
 }
-header nav>.gnb>.gnb_list:hover h2 a::after{
+
+header nav>.gnb>.gnb_list:hover h2 a::after {
   width: 100%;
   opacity: 1;
 }
+
 header nav>.gnb>.gnb_list ul {
   max-width: 1200px;
   margin: 0 auto;
@@ -109,43 +119,50 @@ header nav>.gnb>.gnb_list ul {
   transform: translateX(-30%);
   /*! padding: 0 2.5vw; */
 }
+
 header nav>.gnb>.gnb_list:first-child ul {
   transform: initial;
 }
+
 header nav>.gnb>.gnb_list:hover ul {
   display: block;
 }
+
 header nav>.gnb>.gnb_list ul li {
   float: left;
   overflow: hidden;
 }
-header nav>.gnb>.gnb_list ul li a{
+
+header nav>.gnb>.gnb_list ul li a {
   color: #000;
   display: block;
   font-size: 18px;
   position: relative;
   opacity: 0;
-  padding: 0 20px; 
+  padding: 0 20px;
   transition: color 0.5s;
 }
+
 header nav>.gnb>.gnb_list:hover ul li a {
   animation-name: gnb_a;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
 }
+
 @keyframes gnb_a {
-  0%{
+  0% {
     top: 20px;
-    
+
   }
+
   100% {
     top: 0;
     opacity: 1;
   }
 }
+
 header nav .enb {
-  float: right;
   color: #000;
   display: block;
   /*! padding: 0 10px; */
@@ -153,22 +170,28 @@ header nav .enb {
 }
 
 header nav .enb li {
-  margin: 0 0.7vw;
   display: inline-block;
   vertical-align: middle;
   line-height: 80px;
 }
+
+header nav .enb li + li {
+  margin-left: 1rem;
+}
+
 header nav .enb li select {
   background: transparent;
   border: transparent;
   color: #fff;
   font-size: 16px;
 }
+
 header nav .enb li a {
   color: #fff;
 
   font-size: 15px;
 }
+
 header nav .enb li.popup_btn {
   cursor: pointer;
   width: 25px;
@@ -186,6 +209,7 @@ header nav .enb li .search_sit {
   border-radius: 50%;
   vertical-align: middle;
 }
+
 header nav .enb li .search_btn {
   text-indent: -9999px;
   display: inline-block;
@@ -195,47 +219,61 @@ header nav .enb li .search_btn {
   background-size: 100%;
   vertical-align: middle;
 }
+
 .search_popup {
   width: 100%;
 }
+
 /* 제이쿼리 */
 .fixed-gnb {
   background-color: #fff;
   opacity: 1;
 }
+
 .fixed-gnb h1 a {
   background-image: url("../img/logo-samhwa-red.svg");
 }
+
 .change a {
   background-image: url("../img/logo-samhwa-red.svg") !important;
 }
+
 .fixed-gnb h1::after {
   background-image: url("../img/logo-samhwa-red-bf.svg");
 }
+
 .fixed-gnb nav .gnb_list h2 a {
   color: #000 !important;
 }
+
 .fixed-gnb nav .gnb_list h2 a {
   color: #000 !important;
 }
+
 .fixed-gnb nav .enb li select {
   color: #000 !important;
 }
+
 .fixed-gnb nav .enb li .search_btn {
   background-image: url(../img/search_black.png);
 }
+
 .fixed-gnb nav .enb li .search_sit {
   background-color: #000 !important;
 }
+
 .fixed-gnb nav .enb li a {
   color: #000;
 }
+
 .fixed-gnb nav .enb a.ham {
   background-color: #000 !important;
 }
+
 .fixed-gnb nav .enb a.ham::before {
   background-color: #000 !important;
 }
+
 .fixed-gnb nav .enb a.ham::after {
   background-color: #000 !important;
 }
