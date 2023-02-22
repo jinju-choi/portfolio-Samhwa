@@ -11,8 +11,9 @@ span.block {
 }
 
 
-html, body {
- height: 100%;
+html,
+body {
+    height: 100%;
 }
 
 body,
@@ -23,10 +24,10 @@ p,
 strong,
 figure,
 address {
-  font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
-.common_h2, 
+.common_h2,
 .common_h2 span {
     font-family: 'Playfair Display', serif;
     font-size: 100px;
@@ -94,9 +95,7 @@ address {
     color: #fff;
 }
 
-.common-input span {
-    
-}
+.common-input span {}
 
 .common-input span a {
     color: #fff;

@@ -1,18 +1,23 @@
 #search_popup .inner {
     max-width: 750px;
 }
+
 #search_popup fieldset input[type="text"] {
     font-size: 30px;
 }
+
 #search_popup .product {
     width: 158px;
 }
+
 #search_popup .product ul li a {
     font-size: 16px;
 }
+
 #search_popup .product ul li a span {
     display: block;
 }
+
 #search_popup .product ul li a::before {
     width: 50px;
     height: 50px;

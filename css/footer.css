@@ -3,21 +3,26 @@
 footer {
   background: #fafafa;
 }
-footer .wrap{
+
+footer .wrap {
   max-width: 1800px;
   display: flex;
   justify-content: space-around;
   padding: 60px 3.125vw;
 }
-footer .address{
+
+footer .address {
   width: 30%;
 }
+
 .sns {
   display: flex;
 }
+
 .sns li {
   margin-right: 30px
 }
+
 .sns li a {
   text-indent: -9999px;
   display: block;
@@ -27,26 +32,33 @@ footer .address{
   background-position: 50%;
   padding: 5px 0;
 }
+
 .sns li:nth-child(1) a {
   background-image: url(../img/ic-insta.svg);
 }
+
 .sns li:nth-child(2) a {
   background-image: url(../img/youtube.svg);
 }
+
 .sns li:nth-child(3) a {
   background-image: url(../img/blog.svg);
 }
+
 footer .address .add_wrap {
   margin-top: 40px;
   display: block;
   font-size: 13px;
 }
+
 footer .address .add_wrap .corporation {
   line-height: 2;
 }
+
 footer .address .add_wrap .corporation span {
   margin-left: 10px;
 }
+
 footer .address .add_wrap .corporation span::before {
   content: "";
   height: 14px;
@@ -56,17 +68,21 @@ footer .address .add_wrap .corporation span::before {
   margin-right: 10px;
   vertical-align: -2px;
 }
+
 footer .address .add_wrap address {
   line-height: 2;
 }
+
 footer .address .add_wrap .copyright {
   margin-top: 50px;
 }
+
 footer h4 {
   width: 30%;
   text-align: center;
   font-size: 14px;
 }
+
 footer h4 span {
   display: block;
   font-size: 25px;
@@ -74,14 +90,17 @@ footer h4 span {
   letter-spacing: 2.2px;
   line-height: 1.5;
 }
+
 footer .family {
   width: 30%;
 }
+
 footer .family div {
   width: 50%;
   float: right;
   position: relative;
 }
+
 footer .family div span.family {
   border-bottom: 1px solid #ccc;
   display: block;
@@ -90,7 +109,8 @@ footer .family div span.family {
   cursor: pointer;
   width: 100%;
 }
-footer .family div span.arrow{
+
+footer .family div span.arrow {
   width: 12px;
   height: 12px;
   background-image: url(../img/arw-dropdown.svg);

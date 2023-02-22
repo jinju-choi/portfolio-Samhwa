@@ -175,7 +175,7 @@ header nav .enb li {
   line-height: 80px;
 }
 
-header nav .enb li + li {
+header nav .enb li+li {
   margin-left: 1rem;
 }
 
